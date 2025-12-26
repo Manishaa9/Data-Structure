@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -262,6 +263,44 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  // Read email and password
+    String email = jTextField1.getText();
+    String password = jTextField2.getText();
+
+    // Optional: check if email/password are empty
+    if(email.isEmpty() || password.isEmpty()) {
+        JOptionPane.showMessageDialog(Login.this, "Please enter email and password!");
+        return;
+    }
+
+    // Ensure a role is selected
+    if (!jCheckBox1.isSelected() && !jCheckBox2.isSelected()) {
+        JOptionPane.showMessageDialog(Login.this, "Please select a role!");
+        return;
+    }
+
+    // Open the appropriate dashboard
+    if (jCheckBox1.isSelected()) {
+        // User Dashboard
+        javax.swing.JFrame frame = new javax.swing.JFrame("User Dashboard");
+        frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+        frame.add(new UserDashboard());
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
+        this.dispose(); // close login window
+    } else if (jCheckBox2.isSelected()) {
+        // Admin Dashboard
+        javax.swing.JFrame frame = new javax.swing.JFrame("Admin Dashboard");
+        frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+        frame.add(new AdminDashboard()); // make sure AdminDashboard exists
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
+        this.dispose(); // close login window
+    }
                                                                                 
   
 
