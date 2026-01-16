@@ -3,28 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controller;
-
+import Model.User;
+import java.util.ArrayList;
 
 
 import Model.User;
 
 public class UserController {
-    private User user;
+    public static ArrayList<User> users = new ArrayList<>();
 
-    public UserController(User user){
-        this.user = user;
+    public static boolean emailExists(String email) {
+        for(User u : users) {
+            if(u.getEmail().equalsIgnoreCase(email)) return true;
+        }
+        return false;
     }
 
-    public void updateProfile(String name, String email, String phone, String address){
-        user.setName(name);
-        user.setEmail(email);
-        user.setPhone(phone);
-        user.setAddress(address);
-
-        // Optional: Save to database here
-    }
-
-    public User getUser(){
-        return user;
+    public static User getUserByEmail(String email) {
+        for(User u : users) {
+            if(u.getEmail().equalsIgnoreCase(email)) return u;
+        }
+        return null;
     }
 }

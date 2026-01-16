@@ -8,18 +8,32 @@ package Model;
  *
  * @author Lenovo
  */
-public class Appointment {
-    String doctorName;
-    String date;
-    String user;
 
-    public Appointment(String doctorName,String date,String user){
+public class Appointment {
+    private String user;          // patient email
+    private String doctorName;
+    private String date;
+    private String time;
+    private String status;
+
+    // Constructor
+    public Appointment(String user, String doctorName, String date, String time, String status) {
+        this.user = user;
         this.doctorName = doctorName;
         this.date = date;
-        this.user = user;
+        this.time = time;
+        this.status = status;
     }
 
-    public String getDoctorName(){ return doctorName;}
-    public String getDate(){ return date;}
-    public String getUser(){ return user;}
+    // Getters
+    public String getUser() { return user; }
+    public String getDoctorName() { return doctorName; }
+    public String getDate() { return date; }
+    public String getTime() { return time; }
+    public String getStatus() { return status; }
+
+    // Setter (for Cancel/Update)
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

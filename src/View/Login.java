@@ -4,6 +4,7 @@
  */
 package View;
 import javax.swing.JOptionPane;
+import View.Signup;
 
 /**
  *
@@ -263,7 +264,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-  // Read email and password
+
     String email = jTextField1.getText();
     String password = jTextField2.getText();
 
@@ -308,6 +309,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+                                    
+    javax.swing.JFrame frame = new javax.swing.JFrame("Signup");
+    frame.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+    frame.add(new Signup());
+    frame.pack();
+    frame.setLocationRelativeTo(null);
+    frame.setVisible(true);
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
